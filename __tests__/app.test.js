@@ -39,10 +39,9 @@ describe('ct-lab09 routes', () => {
     await Vacations.insert({ destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
     const res = await request(app)
       .put('/api/v1/vacations/1')
-      .send({ startDate: 'APRIL' });
+      .send({ startDate: 'APRIL', destination: null, endDate: null, details: null });
     expect(res.body).toEqual({ id: '1', destination: 'Hawaii', startDate: 'APRIL', endDate: 'May 20th', details: 'going for anniversary celebration' });
   });
-
 
 
 });
