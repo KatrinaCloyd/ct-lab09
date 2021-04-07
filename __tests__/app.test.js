@@ -47,8 +47,9 @@ describe('ct-lab09 routes', () => {
     await Vacations.insert({ destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
     const res = await request(app)
       .delete('/api/v1/vacations/1');
-    expect(res.body).toEqual({ id: '1', destination: 'Hawaii', startDate: 'APRIL', endDate: 'May 20th', details: 'going for anniversary celebration' });
-    expect(Vacations.getAll).toEqual([]);
+    expect(res.body).toEqual({ id: '1', destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
+    const allVacas = await Vacations.getAll();
+    expect(allVacas).toEqual([]);
   });
 
 
