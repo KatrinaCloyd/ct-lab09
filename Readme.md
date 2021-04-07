@@ -17,3 +17,12 @@ OPTIONAL for +2 pts:
 * model class (1 points)
 * service class (8 points)
 * controller (1 points)
+
+## PLAN
+* POST add a new vacation to the list 
+* GET all vacations
+* GET vacation by id
+* PUT update vacation info  
+* DELETE to remove vacation 
+
+* BONUS to add unsplash random photo to vacation
