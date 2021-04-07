@@ -5,5 +5,6 @@ CREATE TABLE vacations(
     destination TEXT NOT NULL, 
     start_date TEXT NOT NULL, 
     end_date TEXT NOT NULL,
-    details TEXT 
+    details TEXT,
+    photo TEXT
 )

@@ -9,11 +9,11 @@ describe('ct-lab09 routes', () => {
     return setup(pool);
   });
 
-  it('post will create a new vacation in the vacations table', async () => {
+  it.only('post will create a new vacation in the vacations table', async () => {
     const res = await request(app)
       .post('/api/v1/vacations')
       .send({ destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
-    expect(res.body).toEqual({ id: expect.any(String), destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
+    expect(res.body).toEqual({ id: expect.any(String), destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration', photo: expect.any(String) });
   });
 
   it('get vacation by id 1 will return correct vacation', async () => {
@@ -50,6 +50,13 @@ describe('ct-lab09 routes', () => {
     expect(res.body).toEqual({ id: '1', destination: 'Hawaii', startDate: 'May 5th', endDate: 'May 20th', details: 'going for anniversary celebration' });
     const allVacas = await Vacations.getAll();
     expect(allVacas).toEqual([]);
+  });
+
+  it('will hit outside api and return a link to an image', async () => {
+    const res = await request(app)
+      .get('/api/v1/vacations/pic')
+      .send({ destination: 'hawaii' });
+    expect(res.text).toEqual(expect.any(String));
   });
 
 

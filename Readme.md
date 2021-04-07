@@ -25,14 +25,5 @@ OPTIONAL for +2 pts:
 * PUT update vacation info  
 * DELETE to remove vacation 
 
-* BONUS to add unsplash random photo to vacation
+* BONUS to add unsplash search photo to vacation
 
-
-
-
-static async delete(id) {
-        const { rows } = await pool.query(
-            'DELETE FROM vacations WHERE id=$1 RETURNING *', [id]);
-        return new Vacations(rows[0]);
-    }
-    
